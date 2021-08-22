@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'adminportal/course.css' %}">
+</head>
+<body>
+    <div class="row">
+        {% for o in list_of_courses %}
+        <div class="card">
+            {% load static %}
+            <img src="{% static 'adminportal/default.png' %}" alt="My image" style="width:100%">
+            <div class="container">
+                <h4><b>{{o.course_code}}</b></h4>
+                <p>{{o.course_name}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
