@@ -18,8 +18,12 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from adminportal import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('adminportal/', include('adminportal.urls'))
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('register/', views.register_request, name='register_request'),
+    path('login/', views.login_request, name='login_request'),
+    path("logout/", views.logout_request, name= "logout"),
+    path('', include('adminportal.urls'), name="Courses"),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

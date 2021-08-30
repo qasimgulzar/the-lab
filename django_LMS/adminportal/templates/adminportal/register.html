@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LMS SIGN UP</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      width: 100vw;
+      height:100vh;
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      {% load static %}
+      body {
+        width: 100%;
+        height: 100%;
+        background-size: 100vw 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({% static 'adminportal/wallpaper.jpg' %});
+        align-items: center;
+        margin: 0;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      border: .5rem solid #f1f1f1;
+      background: white;
+      height: fit-content;
+      }
+      input[type=text], input[type=password], input [type=email] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      button {
+      background-color: #8ebf42;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form method = "POST">
+      {% csrf_token %}
+      <h1>LMS SIGNUP</h1>
+      <div class="formcontainer">
+      <hr/>
+      <div class="container">
+        <label for="username"><strong>Username:</strong></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="email"><strong>Email:</strong></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="password1"><strong>Password:</strong></label>
+        <input type="password" placeholder="Enter Password" name="password1" required>
+        <label for="password2"><strong>Password Confirmation:</strong></label>
+        <input type="password" placeholder="Enter Password" name="password2" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+<p class="text-center">
+    If you already have an account, <a href="/login">Login</a> instead.
+  </p>
+  </body>
+</html>
