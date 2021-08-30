@@ -1,23 +1,32 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Course</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'adminportal/course.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'adminportal/course.css' %}" />
+  </head>
+  <script>
+    function openCourse(course) {
+      console.log(course);
+    }
+  </script>
+  <body>
     <div class="row">
-        {% for o in list_of_courses %}
-        <div class="card">
-            {% load static %}
-            <img src="{% static 'adminportal/default.png' %}" alt="My image" style="width:100%">
-            <div class="container">
-                <h4><b>{{o.course_code}}</b></h4>
-                <p>{{o.course_name}}</p>
-            </div>
+      {% for course in list_of_courses %}
+      <div class="card" onclick="window.location='{{course.id}}/'">
+        <img
+          src="{{ course.course_image }}"
+          alt="My image"
+          style="width: 100%"
+        />
+        <div class="container">
+          <h4><b>{{course.course_code}}</b></h4>
+          <p>{{course.course_name}}</p>
         </div>
-        {% endfor %}
+      </div>
+      {% endfor %}
     </div>
-</body>
+  </body>
 </html>

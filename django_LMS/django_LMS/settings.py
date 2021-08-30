@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'adminportal.apps.AdminportalConfig',
     'corsheaders',
+    'crispy_forms',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,3 +144,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
